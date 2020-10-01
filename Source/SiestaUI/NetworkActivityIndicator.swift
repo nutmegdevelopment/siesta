@@ -18,8 +18,12 @@ private var requestsInProgress = 0
     {
     didSet
         {
-        UIApplication.shared.isNetworkActivityIndicatorVisible =
-            requestsInProgress > 0
+            if #available(iOSApplicationExtension 12, *) {
+                // do nothing
+            } else {
+                guard let sharedApplication = UIApplication.sharedApplication() else { return }
+                sharedApplication.isNetworkActivityIndicatorVisible = requestsInProgress > 0
+            }
         }
     }
 
@@ -63,5 +67,14 @@ extension Configuration
             }
         }
     }
+
+// MARK: - For App Extensions
+extension UIApplication {
+    static func sharedApplication() -> UIApplication? {
+        let selector = NSSelectorFromString("sharedApplication")
+        guard responds(to: selector) else { return nil }
+        return perform(selector).takeUnretainedValue() as? UIApplication
+    }
+}
 
 #endif // OS(iOS)

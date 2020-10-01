@@ -2137,6 +2137,7 @@
 		DAC0B3A81D651CB500D25C44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2154,6 +2155,7 @@
 		DAC0B3A91D651CB500D25C44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
